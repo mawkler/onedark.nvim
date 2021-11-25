@@ -131,12 +131,12 @@ function M.setup(config)
     qfLineNr = {link = "CursorLineNr"},
     qfFileName = {fg = c.blue},
     htmlTag = {fg = c.purple, style = "bold"},
-    -- mkdHeading = { fg = c.orange, style = "bold" },
+    mkdHeading = { fg = c.blue, style = "bold" },
     -- mkdCode = { bg = c.bg2, fg = c.fg },
     mkdCodeDelimiter = {fg = c.fg},
     mkdCodeStart = {fg = c.yellow, style = "bold"},
     mkdCodeEnd = {fg = c.yellow, style = "bold"},
-    -- mkdLink = { fg = c.blue, style = "underline" },
+    mkdLink = { fg = c.blue, style = "underline" },
 
     markdownHeadingDelimiter = {fg = c.orange, style = "bold"},
     markdownCode = {fg = c.yellow},
@@ -505,7 +505,10 @@ function M.setup(config)
     NotifyWARNBody = {fg = util.lighten(c.warning, 0.1)},
     NotifyINFOBody = {fg = util.lighten(c.green, 0.1)},
     NotifyDEBUGBody = {link = "NotifyDEBUGTitle"},
-    NotifyTRACEBody = {fg = util.lighten(c.purple, 0.1)}
+    NotifyTRACEBody = {fg = util.lighten(c.purple, 0.1)},
+
+    -- Indent blankline
+    IndentBlanklineChar = {fg = c.bg_visual},
   }
 
   theme.defer = {}
