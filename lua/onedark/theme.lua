@@ -41,7 +41,7 @@ theme.setup = function(cfg)
     FoldColumn = { fg = c.fg_gutter, bg = c.bg0 }, -- 'foldcolumn'
     SignColumn = { fg = c.fg_gutter, bg = cfg.transparent and c.none or c.bg_linenumber }, -- column where |signs| are displayed
     SignColumnSB = { fg = c.fg_gutter, bg = c.bg_sidebar }, -- column where |signs| are displayed
-    Substitute = { fg = c.black0, bg = c.red1 }, -- |:substitute| replacement text highlighting
+    Substitute = { link = 'Search' }, -- |:substitute| replacement text highlighting
     LineNr = {
       fg = cfg.transparent and c.fg0 or c.fg_gutter,
       bg = cfg.transparent and c.none or c.bg_linenumber,
@@ -64,9 +64,9 @@ theme.setup = function(cfg)
     PmenuThumb = { bg = c.fg_gutter }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.blue0 }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = c.bg_visual, style = Styles.Bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = { fg = c.fg_search, bg = c.bg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search = { bg = c.bg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = { fg = c.black0, bg = c.orange1 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    SpecialKey = { fg = c.fg_gutter }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+    SpecialKey = { fg = c.blue0 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = { sp = c.error, style = Styles.Undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap = { sp = c.warning, style = Styles.Undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal = { sp = c.info, style = Styles.Undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
@@ -78,7 +78,7 @@ theme.setup = function(cfg)
     TabLineSel = { fg = c.black0, bg = c.blue0 }, -- tab pages line, active tab page label
     Title = { fg = c.blue0, style = Styles.Bold }, -- titles for output from ":set all", ":autocmd" etc.
     Visual = { bg = c.bg_visual }, -- Visual mode selection
-    VisualNOS = { link = 'Visual' }, -- Visual mode selection when vim is "Not Owning the Selection".
+    VisualNOS = { bg = c.bg_visual }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = c.warning }, -- warning messages
     Whitespace = { fg = c.fg_gutter }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu = { bg = c.bg_visual }, -- current match in 'wildmenu' completion
@@ -135,7 +135,9 @@ theme.setup = function(cfg)
     qfLineNr = { link = 'CursorLineNr' },
     qfFileName = { fg = c.blue0 },
     htmlTag = { fg = c.purple0, style = Styles.Bold },
-    -- mkdHeading = { fg = c.orange1, style = Styles.Bold},
+    htmlBold = { fg = c.orange0, style = Styles.Bold },
+    htmlItalic = { fg = c.purple0, style = Styles.Italic },
+    mkdHeading = { link = 'Title' },
     -- mkdCode = { fg = c.fg0, bg = c.bg1 },
     mkdCodeDelimiter = { fg = c.fg0 },
     mkdCodeStart = { fg = c.yellow1, style = Styles.Bold },
@@ -389,28 +391,29 @@ theme.setup = function(cfg)
 
     -- Telescope
     TelescopeBorder = { fg = util.darken(c.fg0, 0.5), bg = c.bg_float },
-    TelescopeNormal = { bg = cfg.transparent and c.none or c.bg_float },
     TelescopeMatching = { fg = c.fg_light, style = Styles.Bold },
+    TelescopePromptPrefix = { fg = c.fg0, style = Styles.Bold },
     TelescopePromptPrefix = { fg = c.fg0, style = Styles.Bold },
     TelescopePromptCounter = { fg = c.blue0 },
     TelescopeMultiSelection = { fg = c.fg_dark },
-    TelescopeSelection = { bg = c.bg_visual },
 
     -- NvimTree
     NvimTreeNormal = { fg = c.fg_light, bg = c.bg_sidebar },
     NvimTreeEndOfBuffer = { fg = c.sidebar_eob },
     NvimTreeRootFolder = { fg = c.fg_light, style = Styles.Bold, bg = c.bg_sidebar },
-    NvimTreeGitDirty = { fg = c.yellow0 },
-    NvimTreeGitNew = { fg = c.git.add },
+    NvimTreeGitDirty = { fg = c.orange1 },
+    NvimTreeGitNew = { fg = c.green0 },
     NvimTreeGitDeleted = { fg = c.git.delete },
     NvimTreeGitRenamed = { fg = c.purple0 },
+    NvimTreeGitIgnored = { fg = c.fg_dark },
     NvimTreeSpecialFile = { fg = c.yellow1, style = Styles.Underline },
     NvimTreeIndentMarker = { fg = c.fg_gutter },
     NvimTreeImageFile = { fg = c.fg_dark },
     NvimTreeSymlink = { fg = c.purple0 },
-    NvimTreeFolderName = { fg = c.fg_light },
-    NvimTreeOpenedFolderName = { fg = c.fg_light, style = Styles.Bold },
+    NvimTreeFolderName = { fg = c.blue0 },
+    NvimTreeOpenedFolderName = { fg = c.blue0, style = Styles.Bold },
     NvimTreeEmptyFolderName = { fg = c.fg_dark },
+    NvimTreeOpenedFile = { style = Styles.Bold },
     LspDiagnosticsError = { fg = c.error },
     LspDiagnosticsWarning = { fg = c.warning },
     LspDiagnosticsInformation = { fg = c.info },
@@ -491,24 +494,24 @@ theme.setup = function(cfg)
     ALEErrorSign = { fg = c.red1 },
 
     -- Cmp
-    CmpItemAbbrDeprecatedDefault = { fg = util.darken(c.fg0, 0.4) },
+    CmpItemAbbrDeprecatedDefault = { fg = util.darken(c.fg0, 0.8) },
     CmpItemAbbrDefault = { link = 'CmpItemAbbrDeprecatedDefault' },
     CmpItemKindDefault = { fg = util.darken(c.fg0, 0.8) },
     CmpItemMenuDefault = { link = 'CmpItemKindDefault' },
     CmpItemAbbrDeprecated = { fg = c.fg_gutter, style = Styles.Strikethrough },
     CmpItemAbbrMatch = { fg = c.green0 },
-    CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
+    CmpItemAbbrMatchFuzzy = { fg = c.fg0, style = 'bold' },
 
     -- Cmp Item Kind
     CmpItemKindColorDefault = { fg = c.red2 },
     CmpItemKindPropertyDefault = { fg = c.cyan0 },
-    CmpItemKindSnippetDefault = { fg = c.green0 },
+    CmpItemKindSnippetDefault = { fg = c.blue0 },
 
     CmpItemKindVariableDefault = { fg = c.red0 },
     CmpItemKindClassDefault = { link = 'CmpItemKindVariableDefault' },
     CmpItemKindEnumDefault = { link = 'CmpItemKindVariableDefault' },
     CmpItemKindInterfaceDefault = { link = 'CmpItemKindVariableDefault' },
-    CmpItemKindTextDefault = { link = 'CmpItemKindVariableDefault' },
+    CmpItemKindTextDefault = { link = 'Normal' },
 
     CmpItemKindKeywordDefault = { fg = c.cyan0 },
     CmpItemKindFieldDefault = { link = 'CmpItemKindKeywordDefault' },
@@ -578,12 +581,14 @@ theme.setup = function(cfg)
     CocWarningHighlight = { link = 'LspDiagnosticsUnderlineWarning' },
     CocInfoHighlight = { link = 'LspDiagnosticsUnderlineInformation' },
     CocHintHighlight = { link = 'LspDiagnosticsUnderlineHint' },
-
-    CocHighlightText = { bg = c.bg_visual },
+    CocHighlightText = { link = 'Visual' },
     CocUnderline = { style = Styles.Undercurl },
 
     -- Indent blankline
     IndentBlanklineChar = { fg = c.bg_visual, style = Styles.NoCombine },
+
+    -- Nvim-lsp-ts-tuils
+    NvimLspTSUtilsInlineHint = { fg = c.bg_visual },
 
     -- Lightspeed
     LightspeedLabel = { fg = c.orange0, style = Styles.Bold },
@@ -598,8 +603,12 @@ theme.setup = function(cfg)
   }
 
   if cfg.hide_inactive_statusline then
-    hi.base.StatusLineNC = { fg = c.bg0, bg = c.bg0, sp = c.bg_visual, style = Styles.Underline }
+    hi.base.StatusLineNC = { fg = c.bg0, bg = c.bg0, style = Styles.Underline, sp = c.bg_visual }
   end
+
+  local overrides = cfg.overrides(c)
+  util.apply_overrides(hi.base, overrides)
+  util.apply_overrides(hi.plugins, overrides)
 
   return hi
 end
