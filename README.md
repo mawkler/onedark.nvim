@@ -1,10 +1,4 @@
-# Deprecated!
-
-As of Jul 11th 2022, onedark.nvim is fully deprecated. No new changes are expected to land. In fact, none have
-landed for some time.
-
-Check the [this](https://github.com/navarasu/onedark.nvim) another awesome port of atom's onedark theme or migrate to
-[parent repo](https://github.com/monsonjeremy/onedark.nvim).
+**This is a fork of the now archived repository [ful1e5/onedark.nvim](https://github.com/ful1e5/onedark.nvim).**
 
 <p align="center">
   <img src="https://i.imgur.com/lNdBu1v.png" alt="onedark.nvim" />
