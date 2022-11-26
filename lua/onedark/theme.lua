@@ -76,7 +76,7 @@ theme.setup = function(cfg)
     TabLine = { fg = c.fg_gutter, bg = c.bg1 }, -- tab pages line, not active tab page label
     TabLineFill = { bg = c.black0 }, -- tab pages line, where there are no labels
     TabLineSel = { fg = c.black0, bg = c.blue0 }, -- tab pages line, active tab page label
-    Title = { fg = c.blue0, style = Styles.Bold }, -- titles for output from ":set all", ":autocmd" etc.
+    Title = { fg = c.red1, style = Styles.Bold }, -- titles for output from ":set all", ":autocmd" etc.
     Visual = { bg = c.bg_visual }, -- Visual mode selection
     VisualNOS = { bg = c.bg_visual }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = c.warning }, -- warning messages
@@ -99,7 +99,7 @@ theme.setup = function(cfg)
     Function = { fg = c.blue0, style = cfg.function_style }, -- function name (also: methods for classes)
     Method = { link = 'Function' }, -- method name
     Statement = { fg = c.purple0 }, -- (preferred) any statement
-    -- Conditional   = { }, --  if, then, else, endif, switch, etc.
+    Conditional   = { link = 'Statement' }, -- if, then, else, endif, switch, etc.
     -- Repeat        = { }, --   for, do, while, etc.
     -- Label         = { }, --    case, default, etc.
     Operator = { fg = c.red1 }, -- "sizeof", "+", "*", etc.
@@ -109,7 +109,7 @@ theme.setup = function(cfg)
     PreProc = { fg = c.cyan0 }, -- (preferred) generic Preprocessor
     -- Include       = { }, --  preprocessor #include
     -- Define        = { }, --   preprocessor #define
-    -- Macro         = { }, --    same as Define
+    Macro = { fg = c.red0 }, -- same as Define
     -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
 
     Type = { fg = c.yellow1 }, -- (preferred) int, long, char, etc.
@@ -118,11 +118,11 @@ theme.setup = function(cfg)
     -- Typedef       = { }, --  A typedef
 
     Special = { fg = c.red1 }, -- (preferred) any special symbol
-    -- SpecialChar   = { }, --  special character in a constant
+    SpecialChar = { link = 'Special' }, -- special character in a constant
     -- Tag           = { }, --    you can use CTRL-] on this
     -- Delimiter     = { }, --  character that needs attention
     -- SpecialComment= { }, -- special things inside a comment
-    -- Debug         = { }, --    debugging statements
+    Debug = { fg = c.purple0 }, -- debugging statements
 
     Underlined = { style = Styles.Underline }, -- (preferred) text that stands out, HTML links
     Bold = { style = Styles.Bold },
@@ -198,67 +198,106 @@ theme.setup = function(cfg)
 
   ---@class od.Highlights.Plugins
   hi.plugins = {
-    -- These groups are for the neovim tree-sitter highlights.
-    -- As of writing, tree-sitter support is a WIP, group names may change.
+    -- These groups are for the Neovim Treesitter highlights.
+    -- As of writing, Treesitter support is a WIP, group names may change.
     -- By default, most of these groups link to an appropriate Vim group,
-    -- TSError -> Error for example, so you do not have to define these unless
-    -- you explicitly want to support Treesitter's improved syntax awareness.
+    -- `@error` -> `Error` for example, so you do not have to define these
+    -- unless you explicitly want to support Treesitter's improved syntax
+    -- awareness.
 
-    -- TSAnnotation        = { };    -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    -- TSAttribute         = { };    -- (unstable) TODO: docs
-    -- TSBoolean           = { };    -- For booleans.
-    -- TSCharacter         = { };    -- For characters.
-    -- TSComment           = { };    -- For comment blocks.
-    TSNote = { fg = c.bg0, bg = c.info },
-    TSWarning = { fg = c.bg0, bg = c.warning },
-    TSDanger = { fg = c.bg0, bg = c.error },
-    TSConstructor = { fg = c.red1 }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-    -- TSConditional       = { };    -- For keywords related to conditionnals.
-    TSConstant = { fg = c.yellow1 }, -- For constants
-    -- TSConstBuiltin      = { };    -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro        = { };    -- For constants that are defined by macros: `NULL` in C.
-    -- TSError             = { };    -- For syntax/parser errors.
-    -- TSException         = { };    -- For exception related keywords.
-    TSField = { fg = c.cyan0 }, -- For fields.
-    -- TSFloat             = { };    -- For floats.
-    -- TSFunction          = { };    -- For function (calls and definitions).
-    -- TSFuncBuiltin       = { };    -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    TSInclude = { fg = c.purple0 }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    TSKeyword = { fg = c.purple0, style = cfg.keyword_style }, -- For keywords that don't fall in previous categories.
-    TSKeywordFunction = { fg = c.purple0, style = cfg.function_style }, -- For keywords used to define a fuction.
-    TSLabel = { fg = c.blue0 }, -- For labels: `label:` in C and `:label:` in Lua.
-    jsonTSLabel = { fg = c.red0 }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSMethod            = { };    -- For method calls and definitions.
-    TSNamespace = { fg = c.red1 }, -- For identifiers referring to modules and namespaces.
-    -- TSNone              = { };    -- TODO: docs
-    -- TSNumber            = { };    -- For all numbers
-    TSOperator = { fg = c.cyan0 }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSParameter = { fg = c.red1 }, -- For parameters of a function.
-    -- TSParameterReference= { };    -- For references to parameters of a function.
-    TSProperty = { fg = c.cyan0 }, -- Same as `TSField`.
-    TSPunctDelimiter = { fg = c.fg0 }, -- For delimiters ie: `.`
-    TSPunctBracket = { fg = c.fg_dark }, -- For brackets and parens.
-    TSPunctSpecial = { fg = c.fg0 }, -- For special punctutation that does not fall in the catagories before.
-    -- TSRepeat            = { };    -- For keywords related to loops.
-    -- TSString            = { };    -- For strings.
-    TSStringRegex = { fg = c.orange1 }, -- For regexes.
-    TSStringEscape = { fg = c.red1 }, -- For escape characters within a string.
-    -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
-    -- TSType              = { };    -- For types.
-    -- TSTypeBuiltin       = { };    -- For builtin types.
-    TSVariable = { fg = c.red0, style = cfg.variable_style }, -- Any variable name that does not have another highlight.
-    TSVariableBuiltin = { fg = c.yellow1 }, -- Variable names that are defined by the languages, like `this` or `self`.
-    TSTag = { fg = c.red1 }, -- Tags like html tag names.
-    TSTagAttribute = { fg = c.orange0 },
-    -- TSTagDelimiter      = { };    -- Tag delimiter like `<` `>` `/`
-    -- TSText              = { };    -- For strings considered text in a markup language.
-    -- TSEmphasis          = { };    -- For text to be represented with emphasis.
-    -- TSUnderline         = { };    -- For text to be represented with an underline.
-    -- TSStrike            = { };    -- For strikethrough text.
-    -- TSTitle             = { };    -- Text that is part of a title.
-    -- TSLiteral           = { };    -- Literal text.
-    -- TSURI               = { };    -- Any URI like a link or email.
+    ['@annotation'] = { link = 'PreProc' }; -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+    ['@attribute']  = { link = 'PreProc' }; -- (unstable) TODO: docs
+    ['@boolean']    = { link = 'Boolean' }; -- For booleans.
+
+    ['@character']         = { link = 'Character' }; -- For characters.
+    ['@character.special'] = { link = 'SpecialChar' }; -- For special characters.
+
+    ['@comment']     = { link = 'Comment' }; -- For comment blocks.
+    ['@constructor'] = { fg   = c.red1 }, -- For constructor calls and definitions: ` = { }` in Lua, and Java constructors.
+    ['@conditional'] = { link = 'Conditional' }, -- For keywords related to conditionnals.
+
+    ['@constant']         = { fg   = c.yellow1 }, -- For constants
+    ['@constant.builtin'] = { link = 'Special'}, -- For constant that are built in the language: `nil` in Lua.
+    ['@constant.macro']   = { link = 'Define' }, -- For constants that are defined by macros: `NULL` in C.
+
+    ['@debug']  = { link = 'Debug' },
+    ['@define'] = { link = 'Define' },
+
+    ['@error']     = { link = 'Error' }; -- For syntax/parser errors.
+    ['@exception'] = { link = 'Exception' }; -- For exception related keywords.
+    ['@field']     = { fg   = c.cyan0 }, -- For fields.
+    ['@float']     = { link = 'Float' }; -- For floats.
+
+    ['@function']         = { link = 'Function' }; -- For function (calls and definitions).
+    ['@function.call']    = { link = 'Function' };
+    ['@function.builtin'] = { link = 'Special' }; -- For builtin functions: `table.insert` in Lua.
+    ['@function.macro']   = { link = 'Macro' }; -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+
+    ['@include'] = { fg = c.purple0 }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+
+    ['@keyword']          = { fg   = c.purple0, style = cfg.keyword_style }, -- For keywords that don't fall in previous categories.
+    ['@keyword.function'] = { fg   = c.purple0, style = cfg.function_style }, -- For keywords used to define a fuction.
+    ['@keyword.operator'] = { link = '@operator' },
+    ['@keyword.return']   = { link = '@keyword' },
+
+    ['@label']  = { fg = c.blue0 }, -- For labels: `label:` in C and `:label:` in Lua.
+
+    ['@method']      = { link = 'Method' }; -- For method calls and definitions.
+    ['@method.call'] = { link = 'Method' }; -- For method calls and definitions.
+
+    ['@namespace'] = { fg   = c.red1 }, -- For identifiers referring to modules and namespaces.
+    ['@none']      = {}; -- TODO: docs
+    ['@number']    = { link = 'Number' }; -- For all numbers
+    ['@operator']  = { fg   = c.cyan0 }, -- For any operator: `+`, but also `->` and `*` in C.
+
+    ['@parameter']           = { fg   = c.red1 }, -- For parameters of a function.
+    ['@parameter.reference'] = { link = '@parameter' }, -- For references to parameters of a function.
+
+    ['@preproc']  = { link = 'PreProc' },
+    ['@property'] = { fg   = c.cyan0 }, -- Same as `@field`.
+
+    ['@punctuation.delimiter'] = { fg = c.fg0 }, -- For delimiters ie: `.`
+    ['@punctuation.bracket']   = { fg = c.fg_dark }, -- For brackets and parens.
+    ['@punctuation.special']   = { fg = c.fg0 }, -- For special punctutation that does not fall in the catagories before.
+
+    ['@repeat']       = { link = 'Repeat' }; -- For keywords related to loops.
+    ['@storageclass'] = { link = 'StorageClass' }; -- For keywords related to loops.
+
+    ['@string']         = { link = 'String' }; -- For strings.
+    ['@string.regex']   = { fg   = c.orange1 }, -- For regexes.
+    ['@string.escape']  = { fg   = c.red1 }, -- For escape characters within a string.
+    ['@string.special'] = { link = 'SpecialChar' },
+
+    ['@symbol'] = { link = 'Symbol' }; -- For identifiers referring to symbols or atoms.
+
+    ['@type']            = { link = 'Type' }; -- For types.
+    ['@type.builtin']    = { link = 'Type' }; -- For builtin types.
+    ['@type.qualifier']  = { link = 'Type' };
+    ['@type.definition'] = { link = 'Typedef' };
+
+    ['@variable']         = { fg = c.red0, style = cfg.variable_style }, -- Any variable name that does not have another highlight.
+    ['@variable.builtin'] = { fg = c.yellow1 }, -- Variable names that are defined by the languages, like `this` or `self`.
+
+    ['@tag']           = { fg   = c.red1 }, -- Tags like html tag names.
+    ['@tag.attribute'] = { fg   = c.orange0 },
+    ['@tag.delimiter'] = { link = 'Delimiter' }, -- Tag delimiter like `<` `>` `/`
+
+    ['@text']                  = { link  = 'Text' }; -- For strings considered text in a markup language.
+    ['@text.strong']           = { style = Styles.Bold },
+    ['@text.emphasis']         = { style = Styles.Italic }, -- For text to be represented with emphasis.
+    ['@text.underline']        = { style = Styles.Underline }, -- For text to be represented with an underline.
+    ['@text.strike']           = { style = Styles.Strikethrough },-- For strikethrough text.
+    ['@text.title']            = { link  = 'Title' }; -- Text that is part of a title.
+    ['@text.literal']          = { fg    = c.red1 }, -- Literal text.
+    ['@text.uri']              = { fg    = c.blue0, style = Styles.Underline }, -- Any URI like a link or email.
+    ['@text.math']             = { link  = 'Special' },
+    ['@text.reference']        = { fg    = c.blue0 },
+    ['@text.environment']      = { link  = 'Macro' },
+    ['@text.environment.name'] = { link  = 'Type' },
+    ['@text.note']             = { fg    = c.bg0, bg      = c.info },
+    ['@text.warning']          = { fg    = c.bg0, bg      = c.warning },
+    ['@text.danger']           = { fg    = c.bg0, bg      = c.error },
+    ['@text.todo']             = { link  = 'Todo' },
 
     Quote = { fg = c.green0 },
 
@@ -277,14 +316,6 @@ theme.setup = function(cfg)
 
     -- make
     makeIdent = { fg = c.orange0 },
-
-    -- markdown
-    TSURI = { fg = c.blue0, style = Styles.Underline },
-    TSLiteral = { fg = c.red1 },
-    TSTextReference = { fg = c.blue0 },
-    TSTitle = { fg = c.red1, style = Styles.Bold },
-    TSEmphasis = { style = Styles.Italic },
-    TSStrong = { style = Styles.Bold },
 
     -- php
     phpTSPunctBracket = { fg = c.red0 },
