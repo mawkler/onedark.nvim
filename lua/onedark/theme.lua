@@ -288,7 +288,7 @@ theme.setup = function(cfg)
     ['@text.underline']        = { style = Styles.Underline }, -- For text to be represented with an underline.
     ['@text.strike']           = { style = Styles.Strikethrough },-- For strikethrough text.
     ['@text.title']            = { link  = 'Title' }; -- Text that is part of a title.
-    ['@text.literal']          = { fg    = c.red1 }, -- Literal text.
+    ['@text.literal']          = { link = '@text' }, -- Literal text.
     ['@text.uri']              = { fg    = c.blue0, style = Styles.Underline }, -- Any URI like a link or email.
     ['@text.math']             = { link  = 'Special' },
     ['@text.reference']        = { fg    = c.blue0 },
