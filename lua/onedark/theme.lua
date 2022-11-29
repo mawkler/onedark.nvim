@@ -213,10 +213,10 @@ theme.setup = function(cfg)
     ['@character.special'] = { link = 'SpecialChar' }; -- For special characters.
 
     ['@comment']     = { link = 'Comment' }; -- For comment blocks.
-    ['@constructor'] = { fg   = c.red1 }, -- For constructor calls and definitions: ` = { }` in Lua, and Java constructors.
+    ['@constructor'] = { fg = c.red1 }, -- For constructor calls and definitions: ` = { }` in Lua, and Java constructors.
     ['@conditional'] = { link = 'Conditional' }, -- For keywords related to conditionnals.
 
-    ['@constant']         = { fg   = c.yellow1 }, -- For constants
+    ['@constant']         = { fg = c.yellow1 }, -- For constants
     ['@constant.builtin'] = { link = 'Special'}, -- For constant that are built in the language: `nil` in Lua.
     ['@constant.macro']   = { link = 'Define' }, -- For constants that are defined by macros: `NULL` in C.
 
@@ -225,7 +225,7 @@ theme.setup = function(cfg)
 
     ['@error']     = { link = 'Error' }; -- For syntax/parser errors.
     ['@exception'] = { link = 'Exception' }; -- For exception related keywords.
-    ['@field']     = { fg   = c.cyan0 }, -- For fields.
+    ['@field']     = { fg = c.cyan0 }, -- For fields.
     ['@float']     = { link = 'Float' }; -- For floats.
 
     ['@function']         = { link = 'Function' }; -- For function (calls and definitions).
@@ -235,8 +235,8 @@ theme.setup = function(cfg)
 
     ['@include'] = { fg = c.purple0 }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
-    ['@keyword']          = { fg   = c.purple0, style = cfg.keyword_style }, -- For keywords that don't fall in previous categories.
-    ['@keyword.function'] = { fg   = c.purple0, style = cfg.function_style }, -- For keywords used to define a fuction.
+    ['@keyword']          = { fg = c.purple0, style = cfg.keyword_style }, -- For keywords that don't fall in previous categories.
+    ['@keyword.function'] = { fg = c.purple0, style = cfg.function_style }, -- For keywords used to define a fuction.
     ['@keyword.operator'] = { link = '@operator' },
     ['@keyword.return']   = { link = '@keyword' },
 
@@ -245,16 +245,16 @@ theme.setup = function(cfg)
     ['@method']      = { link = 'Method' }; -- For method calls and definitions.
     ['@method.call'] = { link = 'Method' }; -- For method calls and definitions.
 
-    ['@namespace'] = { fg   = c.red1 }, -- For identifiers referring to modules and namespaces.
+    ['@namespace'] = { fg = c.red1 }, -- For identifiers referring to modules and namespaces.
     ['@none']      = {}; -- TODO: docs
     ['@number']    = { link = 'Number' }; -- For all numbers
-    ['@operator']  = { fg   = c.cyan0 }, -- For any operator: `+`, but also `->` and `*` in C.
+    ['@operator']  = { fg = c.cyan0 }, -- For any operator: `+`, but also `->` and `*` in C.
 
-    ['@parameter']           = { fg   = c.red1 }, -- For parameters of a function.
+    ['@parameter']           = { fg = c.red1 }, -- For parameters of a function.
     ['@parameter.reference'] = { link = '@parameter' }, -- For references to parameters of a function.
 
     ['@preproc']  = { link = 'PreProc' },
-    ['@property'] = { fg   = c.cyan0 }, -- Same as `@field`.
+    ['@property'] = { fg = c.cyan0 }, -- Same as `@field`.
 
     ['@punctuation.delimiter'] = { fg = c.fg0 }, -- For delimiters ie: `.`
     ['@punctuation.bracket']   = { fg = c.fg_dark }, -- For brackets and parens.
@@ -264,8 +264,8 @@ theme.setup = function(cfg)
     ['@storageclass'] = { link = 'StorageClass' }; -- For keywords related to loops.
 
     ['@string']         = { link = 'String' }; -- For strings.
-    ['@string.regex']   = { fg   = c.orange1 }, -- For regexes.
-    ['@string.escape']  = { fg   = c.red1 }, -- For escape characters within a string.
+    ['@string.regex']   = { fg = c.orange1 }, -- For regexes.
+    ['@string.escape']  = { fg = c.red1 }, -- For escape characters within a string.
     ['@string.special'] = { link = 'SpecialChar' },
 
     ['@symbol'] = { link = 'Symbol' }; -- For identifiers referring to symbols or atoms.
@@ -278,25 +278,25 @@ theme.setup = function(cfg)
     ['@variable']         = { fg = c.red0, style = cfg.variable_style }, -- Any variable name that does not have another highlight.
     ['@variable.builtin'] = { fg = c.yellow1 }, -- Variable names that are defined by the languages, like `this` or `self`.
 
-    ['@tag']           = { fg   = c.red1 }, -- Tags like html tag names.
-    ['@tag.attribute'] = { fg   = c.orange0 },
+    ['@tag']           = { fg = c.red1 }, -- Tags like html tag names.
+    ['@tag.attribute'] = { fg = c.orange0 },
     ['@tag.delimiter'] = { link = 'Delimiter' }, -- Tag delimiter like `<` `>` `/`
 
-    ['@text']                  = { link  = 'Text' }; -- For strings considered text in a markup language.
+    ['@text']                  = { link = 'Text' }; -- For strings considered text in a markup language.
     ['@text.strong']           = { style = Styles.Bold },
     ['@text.emphasis']         = { style = Styles.Italic }, -- For text to be represented with emphasis.
     ['@text.underline']        = { style = Styles.Underline }, -- For text to be represented with an underline.
     ['@text.strike']           = { style = Styles.Strikethrough },-- For strikethrough text.
     ['@text.title']            = { link  = 'Title' }; -- Text that is part of a title.
     ['@text.literal']          = { link = '@text' }, -- Literal text.
-    ['@text.uri']              = { fg    = c.blue0, style = Styles.Underline }, -- Any URI like a link or email.
-    ['@text.math']             = { link  = 'Special' },
-    ['@text.reference']        = { fg    = c.blue0 },
-    ['@text.environment']      = { link  = 'Macro' },
-    ['@text.environment.name'] = { link  = 'Type' },
-    ['@text.note']             = { fg    = c.bg0, bg      = c.info },
-    ['@text.warning']          = { fg    = c.bg0, bg      = c.warning },
-    ['@text.danger']           = { fg    = c.bg0, bg      = c.error },
+    ['@text.uri']              = { fg = c.blue0, style = Styles.Underline }, -- Any URI like a link or email.
+    ['@text.math']             = { link = 'Special' },
+    ['@text.reference']        = { fg = c.blue0 },
+    ['@text.environment']      = { link = 'Macro' },
+    ['@text.environment.name'] = { link = 'Type' },
+    ['@text.note']             = { fg = c.bg0, bg = c.info },
+    ['@text.warning']          = { fg = c.bg0, bg = c.warning },
+    ['@text.danger']           = { fg = c.bg0, bg = c.error },
     ['@text.todo']             = { link  = 'Todo' },
 
     Quote = { fg = c.green0 },
