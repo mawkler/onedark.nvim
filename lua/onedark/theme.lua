@@ -526,46 +526,45 @@ theme.setup = function(cfg)
 
     -- Cmp
     -- CmpItemAbbrDeprecated = { fg = util.darken(c.fg0, 0.8) },
-    CmpItemAbbr = { link = 'CmpItemAbbrDeprecated' },
+    CmpItemAbbr = { fg = util.darken(c.fg0, 0.8) },
     CmpItemKind = { fg = util.darken(c.fg0, 0.8) },
-    CmpItemMenu = { link = 'CmpItemKind' },
+    CmpItemMenu = { fg = util.darken(c.fg0, 0.4) },
     CmpItemAbbrDeprecated = { fg = c.fg_gutter, style = Styles.Strikethrough },
     CmpItemAbbrMatch = { fg = c.green0 },
-    CmpItemAbbrMatchFuzzy = { fg = c.fg0, style = 'bold' },
+    CmpItemAbbrMatchFuzzy = { fg = c.fg0, style = Styles.Bold },
 
     -- Cmp Item Kind
     CmpItemKindColor = { fg = c.red2 },
-    CmpItemKindProperty = { fg = c.cyan0 },
-    CmpItemKindSnippet = { fg = c.blue0 },
+    CmpItemKindProperty = { link = '@property' },
+    CmpItemKindSnippet = { fg = c.blue1 },
 
-    CmpItemKindVariable = { fg = c.red0 },
+    CmpItemKindVariable = { link = '@variable' },
     CmpItemKindClass = { link = 'CmpItemKindVariable' },
     CmpItemKindEnum = { link = 'CmpItemKindVariable' },
     CmpItemKindInterface = { link = 'CmpItemKindVariable' },
     CmpItemKindText = { link = 'Normal' },
 
-    CmpItemKindKeyword = { fg = c.cyan0 },
-    CmpItemKindField = { link = 'CmpItemKindKeyword' },
+    CmpItemKindKeyword = { link = '@keyword' },
+    CmpItemKindField = { link = '@field' },
     CmpItemKindUnit = { link = 'CmpItemKindKeyword' },
     CmpItemKindValue = { link = 'CmpItemKindKeyword' },
 
     CmpItemKindFile = { fg = c.orange1 },
     CmpItemKindFolder = { link = 'CmpItemKindFile' },
 
-    CmpItemKindFunction = { fg = c.purple0 },
-    CmpItemKindConstructor = { link = 'CmpItemKindFunction' },
+    CmpItemKindFunction = { link = '@function' },
+    CmpItemKindConstructor = { link = '@constructor' },
     CmpItemKindEvent = { link = 'CmpItemKindFunction' },
-    CmpItemKindMethod = { link = 'CmpItemKindFunction' },
+    CmpItemKindMethod = { link = '@method' },
 
-    CmpItemKindOperator = { fg = c.cyan0 },
+    CmpItemKindOperator = { fg = '@operator' },
     CmpItemKindEnumMember = { link = 'CmpItemKindOperator' },
     CmpItemKindReference = { link = 'CmpItemKindOperator' },
-    -- CmpItemKindTypeParameter = { link = 'CmpItemKindOperator' },
 
-    CmpItemKindConstant = { fg = c.yellow1 },
-    CmpItemKindModule = { link = 'CmpItemKindConstant' },
-    CmpItemKindStruct = { link = 'CmpItemKindConstant' },
-    CmpItemKindTypeParameter = { link = 'CmpItemKindConstant' },
+    CmpItemKindConstant = { fg = '@constant' },
+    CmpItemKindModule = { link = '@namespace' },
+    CmpItemKindStruct = { link = '@type' },
+    CmpItemKindTypeParameter = { link = '@type' },
 
     -- nvim-notify
     NotifyERRORTitle = { fg = util.darken(c.error, 0.9) },
