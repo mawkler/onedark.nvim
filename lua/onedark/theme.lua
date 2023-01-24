@@ -530,8 +530,8 @@ theme.setup = function(cfg)
     CmpItemKind = { fg = util.darken(c.fg0, 0.8) },
     CmpItemMenu = { fg = util.darken(c.fg0, 0.4) },
     CmpItemAbbrDeprecated = { fg = c.fg_gutter, style = Styles.Strikethrough },
-    CmpItemAbbrMatch = { fg = c.green0 },
-    CmpItemAbbrMatchFuzzy = { fg = c.fg0, style = Styles.Bold },
+    CmpItemAbbrMatch = { fg = c.fg0, style = Styles.Bold },
+    CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
 
     -- Cmp Item Kind
     CmpItemKindColor = { fg = c.red2 },
@@ -557,11 +557,11 @@ theme.setup = function(cfg)
     CmpItemKindEvent = { link = 'CmpItemKindFunction' },
     CmpItemKindMethod = { link = '@method' },
 
-    CmpItemKindOperator = { fg = '@operator' },
+    CmpItemKindOperator = { link = '@operator' },
     CmpItemKindEnumMember = { link = 'CmpItemKindOperator' },
     CmpItemKindReference = { link = 'CmpItemKindOperator' },
 
-    CmpItemKindConstant = { fg = '@constant' },
+    CmpItemKindConstant = { link = '@constant' },
     CmpItemKindModule = { link = '@namespace' },
     CmpItemKindStruct = { link = '@type' },
     CmpItemKindTypeParameter = { link = '@type' },
