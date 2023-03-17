@@ -299,6 +299,10 @@ theme.setup = function(cfg)
     ['@text.danger']           = { fg = c.bg0, bg = c.error },
     ['@text.todo']             = { link  = 'Todo' },
 
+    -- LSP
+    ['@lsp.type.property'] = { link = '@field' },
+    ['@lsp.type.parameter'] = { fg = c.red1, style = Styles.Italic },
+
     Quote = { fg = c.green0 },
 
     -- javascript
