@@ -230,7 +230,7 @@ theme.setup = function(cfg)
 
     ['@function']         = { link = 'Function' }; -- For function (calls and definitions).
     ['@function.call']    = { link = 'Function' };
-    ['@function.builtin'] = { link = 'Special' }; -- For builtin functions: `table.insert` in Lua.
+    ['@function.builtin'] = { link = '@variable.builtin' }; -- For builtin functions: `table.insert` in Lua.
     ['@function.macro']   = { link = 'Macro' }; -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
 
     ['@include'] = { fg = c.purple0 }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
