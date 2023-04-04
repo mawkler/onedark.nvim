@@ -302,8 +302,9 @@ theme.setup = function(cfg)
     -- LSP
     ['@lsp.type.property'] = { link = '@field' },
     ['@lsp.type.parameter'] = { fg = c.red1, style = Styles.Italic },
-    ['@lsp.mod.defaultLibrary'] = { link = '@variable.builtin' },
-    ['@lsp.typemod.function.defaultLibrary'] = { link = '@variable.builtin' },
+    ['@lsp.mod.defaultLibrary'] = { fg = c.yellow0 },
+    ['@lsp.typemod.function.defaultLibrary'] = { fg = c.yellow0 },
+    ['@lsp.typemod.member.defaultLibrary'] = { fg = c.purple0 },
 
     Quote = { fg = c.green0 },
 
