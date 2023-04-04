@@ -59,10 +59,10 @@ colors.setup = function(cfg)
     ignore = c.fg_gutter,
   }
   c.diff = {
-    add = util.darken(c.git.add, 0.15),
-    delete = util.darken(c.git.delete, 0.15),
-    change = util.darken(c.git.change, 0.15),
-    text = util.darken(c.git.change, 0.25),
+    add = util.darken(c.git.add, 0.09),
+    delete = util.darken(c.git.delete, 0.09),
+    change = util.darken(c.git.change, 0.09),
+    text = util.darken(c.git.change, 0.3),
   }
   c.git_signs = {
     add = util.brighten(c.git.add, 0.2),

@@ -28,8 +28,8 @@ theme.setup = function(cfg)
     CursorColumn = { bg = c.bg_highlight }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine = { bg = c.bg_highlight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory = { fg = c.blue0 }, -- directory names (and other special names in listings)
-    DiffAdd = { fg = c.git.add, bg = c.diff.add }, -- diff mode: Added line |diff.txt|
-    DiffChange = { fg = c.git.change, bg = c.diff.change }, -- diff mode: Changed line |diff.txt|
+    DiffAdd = { bg = c.diff.add }, -- diff mode: Added line |diff.txt|
+    DiffChange = {  bg = c.diff.change }, -- diff mode: Changed line |diff.txt|
     DiffDelete = { fg = c.git.delete, bg = c.diff.delete }, -- diff mode: Deleted line |diff.txt|
     DiffText = { bg = c.diff.text }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer = { fg = c.eob }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
