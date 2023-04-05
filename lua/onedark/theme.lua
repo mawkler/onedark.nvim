@@ -184,6 +184,7 @@ theme.setup = function(cfg)
     DiagnosticUnderlineWarn = { link = 'LspDiagnosticsUnderlineWarning' }, -- Used to underline "Warning" diagnostics
     DiagnosticUnderlineInfo = { link = 'LspDiagnosticsUnderlineInformation' }, -- Used to underline "Information" diagnostics
     DiagnosticUnderlineHint = { link = 'LspDiagnosticsVirtualTextHint' }, -- Used to underline "Hint" diagnostics
+    DiagnosticUnnecessary = { fg = c.hint }
 
     -- LspDiagnosticsFloatingError         = { }, -- Used to color "Error" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingWarning       = { }, -- Used to color "Warning" diagnostic messages in diagnostics float
