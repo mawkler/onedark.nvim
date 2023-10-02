@@ -304,6 +304,7 @@ theme.setup = function(cfg)
     ['@lsp.type.property'] = { link = '@field' },
     ['@lsp.type.parameter'] = { fg = c.red1, style = Styles.Italic },
     ['@lsp.type.variable'] = { link = '@variable' },
+    ['@lsp.typemod.variable'] = { link = '@variable' },
     ['@lsp.mod.defaultLibrary'] = { fg = c.yellow0 },
     ['@lsp.typemod.function.defaultLibrary'] = { fg = c.yellow0 },
     ['@lsp.typemod.member.defaultLibrary'] = { fg = c.purple0 },
@@ -624,7 +625,7 @@ theme.setup = function(cfg)
     CocUnderline = { style = Styles.Undercurl },
 
     -- Indent blankline
-    IndentBlanklineChar = { fg = c.bg_visual, style = Styles.NoCombine },
+    IblIndent = { fg = c.bg_visual, style = Styles.NoCombine },
 
     -- Nvim-lsp-ts-tuils
     NvimLspTSUtilsInlineHint = { fg = c.bg_visual },
