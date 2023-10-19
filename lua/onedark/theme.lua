@@ -246,7 +246,7 @@ theme.setup = function(cfg)
     ['@method']      = { link = 'Method' }; -- For method calls and definitions.
     ['@method.call'] = { link = 'Method' }; -- For method calls and definitions.
 
-    ['@namespace'] = { fg = c.red1 }, -- For identifiers referring to modules and namespaces.
+    ['@namespace'] = { link = 'Type' }, -- For identifiers referring to modules and namespaces.
     ['@none']      = {}; -- TODO: docs
     ['@number']    = { link = 'Number' }; -- For all numbers
     ['@operator']  = { fg = c.cyan0 }, -- For any operator: `+`, but also `->` and `*` in C.
@@ -308,6 +308,9 @@ theme.setup = function(cfg)
     ['@lsp.mod.defaultLibrary'] = { fg = c.yellow0 },
     ['@lsp.typemod.function.defaultLibrary'] = { fg = c.yellow0 },
     ['@lsp.typemod.member.defaultLibrary'] = { fg = c.purple0 },
+
+    -- Rust
+    ['@lsp.type.attributeBracket.rust'] = { fg = c.fg_dark }, -- Make # and [] in Rust attributes the same color
 
     Quote = { fg = c.green0 },
 
