@@ -14,7 +14,7 @@ autocmds.viml_cmds = function(config)
   vim.cmd('augroup onedark')
   vim.cmd('autocmd!')
   vim.cmd('autocmd ColorScheme * lua require("onedark.util").on_colorscheme()')
-  if config.dev then
+  if config.hot_reload then
     vim.cmd('autocmd BufWritePost */lua/onedark/** nested colorscheme onedark')
   end
   for _, sidebar in ipairs(config.sidebars) do
@@ -42,7 +42,7 @@ autocmds.native_cmds = function(config)
     end,
   })
 
-  if config.dev then
+  if config.hot_reload then
     -- Enables hot-reloading in onedark.
     vim.api.nvim_create_autocmd('BufWritePost', {
       pattern = '*/lua/onedark/**',

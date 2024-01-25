@@ -14,6 +14,7 @@ config.schema = {
   dark_float = vim_config.get(vim.g.onedark_dark_float, default_config.dark_float),
   dark_sidebar = vim_config.get(vim.g.onedark_dark_sidebar, default_config.dark_sidebar),
   dev = vim_config.get(vim.g.onedark_dev, default_config.dev),
+  hot_reload = vim_config.get(vim.g.onedark_hot_reload, default_config.hot_reload),
   function_style = vim_config.get(vim.g.onedark_function_style, default_config.function_style),
   hide_end_of_buffer = vim_config.get(vim.g.onedark_hide_end_of_buffer, default_config.hide_end_of_buffer),
   hide_inactive_statusline = vim_config.get(vim.g.onedark_hide_inactive_statusline, default_config.hide_inactive_statusline),

@@ -7,6 +7,7 @@ return {
   dark_float = false,
   dark_sidebar = true,
   dev = false,
+  hot_reload = true,
   function_style = types.od.HighlightStyle.None,
   hide_end_of_buffer = true,
   hide_inactive_statusline = true,

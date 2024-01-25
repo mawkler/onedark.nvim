@@ -38,6 +38,7 @@ od.TerminalConf.alacritty = 'yml'
 ---@field public dark_float boolean
 ---@field public dark_sidebar boolean
 ---@field public dev boolean
+---@field public hot_reload boolean
 ---@field public function_style od.HighlightStyle
 ---@field public hide_end_of_buffer boolean
 ---@field public hide_inactive_statusline boolean
