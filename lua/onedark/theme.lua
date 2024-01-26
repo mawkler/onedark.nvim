@@ -19,6 +19,7 @@ theme.setup = function(cfg)
 
   ---@class od.Highlights.Base
   hi.base = {
+    Text = { fg = c.green0 },
     Comment = { fg = c.fg_dark, style = cfg.comment_style }, -- any comment
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'
     Conceal = { fg = c.fg_gutter }, -- placeholder characters substituted for concealed text (see 'conceallevel')
