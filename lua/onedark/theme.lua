@@ -303,7 +303,7 @@ theme.setup = function(cfg)
     ['@markup.list.unchecked']     = { link = '@markup.list.checked' },
     ['@markup.link']               = { fg = c.blue0 },
     ['@markup.link.uri']           = { fg = c.blue0, style = Styles.Underline }, -- Any URI like a link or email.
-    ['@markup.link.label']         = { link = 'SpecialChar' },
+    ['@markup.link.label']         = { link = '@markup.link.uri' },
     ['@markup.link.label.symbol']  = { link = 'Symbol' }; -- For identifiers referring to symbols or atoms.
     ['@markup.math']               = { link = 'Special' },
     ['@markup.environment']        = { link = 'Macro' },
@@ -321,6 +321,9 @@ theme.setup = function(cfg)
     ['@lsp.mod.defaultLibrary']              = { fg = c.yellow0 },
     ['@lsp.typemod.function.defaultLibrary'] = { fg = c.yellow0 },
     ['@lsp.typemod.member.defaultLibrary']   = { fg = c.purple0 },
+
+    -- Markdown
+    ['@markup.link.markdown_inline'] = { fg = c.purple0 }, -- Markdown link brackets
 
     -- Rust
     ['@lsp.type.attributeBracket.rust'] = { fg = c.fg_dark }, -- Make # and [] in Rust attributes the same color
