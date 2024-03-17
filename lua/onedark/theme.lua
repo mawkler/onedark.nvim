@@ -242,7 +242,7 @@ theme.setup = function(cfg)
     ['@keyword.operator']         = { link = '@operator' },
     ['@keyword.return']           = { link = '@keyword' },
     ['@keyword.repeat']           = { link = 'Repeat' }; -- For keywords related to loops.
-    ['@keyword.storage']          = { link = 'StorageClass' }; -- For keywords related to loops.
+    ['@keyword.modifier']         = { link = 'StorageClass' }; -- For keywords related to loops.
     ['@keyword.exception']        = { link = 'Exception' }; -- For exception related keywords.
     ['@keyword.debug']            = { link = 'Debug' },
     ['@keyword.directive.define'] = { link = 'Define' },
@@ -278,7 +278,7 @@ theme.setup = function(cfg)
 
     ['@type']            = { link = 'Type' }; -- For types.
     ['@type.builtin']    = { link = 'Type' }; -- For builtin types.
-    ['@type.qualifier']  = { link = 'Type' };
+    ['@type.qualifier']  = { link = 'Type' }; -- Removed?
     ['@type.definition'] = { link = 'Typedef' };
 
     ['@tag']           = { fg = c.red1 }, -- Tags like html tag names.
