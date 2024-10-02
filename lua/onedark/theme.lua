@@ -105,6 +105,7 @@ theme.setup = function(cfg)
     -- Label         = { }, --    case, default, etc.
     Operator = { fg = c.red1 }, -- "sizeof", "+", "*", etc.
     Keyword = { fg = c.cyan0, style = cfg.keyword_style }, --  any other keyword
+    Symbol = { fg = c.yellow0 },
     -- Exception     = { }, --  try, catch, throw
 
     PreProc = { fg = c.cyan0 }, -- (preferred) generic Preprocessor
